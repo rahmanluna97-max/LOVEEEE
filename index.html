@@ -1,0 +1,1169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#16070c">
+<title>YOU ARE PRECIOUS | DEEP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black:#100609;
+  --maroon:#350b19;
+  --silver:#e4d8dc;
+  --gold:#c6a37b;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {scroll-behavior:smooth;}
+
+body {
+  background:var(--black);
+  color:var(--silver);
+  font-family:'Cormorant Garamond',serif;
+  overflow-x:hidden;
+}
+
+button {font-family:inherit;cursor:pointer;}
+
+.background {
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+  radial-gradient(ellipse at 50% 20%,#531526,transparent 55%),
+  radial-gradient(ellipse at 80% 80%,#270914,transparent 50%),
+  #100609;
+}
+
+/* PASSWORD */
+
+#lockScreen {
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  background:radial-gradient(circle at 50% 35%,#5c1429,#220812 55%,#090306);
+}
+
+.lock-card {
+  width:100%;
+  max-width:410px;
+  padding:45px 27px;
+  border:1px solid #93616f;
+  background:linear-gradient(145deg,#300b19dd,#12050bdc);
+  box-shadow:0 20px 90px #0009;
+  animation:fadeUp 1.5s ease;
+}
+
+.lock-card h1 {
+  font-size:50px;
+  letter-spacing:8px;
+  font-weight:500;
+}
+
+.lock-card p {
+  line-height:1.8;
+  color:#d6b9c3;
+  margin:22px 0;
+  font-size:18px;
+}
+
+.small {
+  font-family:Montserrat,sans-serif;
+  font-size:10px;
+  letter-spacing:4px;
+  color:var(--gold);
+  margin:15px 0;
+}
+
+.lock-card input {
+  width:100%;
+  padding:15px;
+  background:#16060c;
+  border:1px solid #79505e;
+  color:white;
+  outline:none;
+  text-align:center;
+  font-family:Montserrat,sans-serif;
+  font-size:13px;
+  margin-bottom:17px;
+}
+
+.btn {
+  padding:14px 28px;
+  background:linear-gradient(135deg,#8d2947,#4b1024);
+  color:white;
+  border:1px solid #b77b8d;
+  letter-spacing:2px;
+  font-size:11px;
+  transition:.4s;
+}
+
+.btn:hover {
+  box-shadow:0 0 30px #c04b6b66;
+  transform:translateY(-3px);
+}
+
+#error {
+  color:#f4a4b6;
+  margin-top:15px;
+  font-size:12px;
+}
+
+/* HERO */
+
+#website {display:none;}
+
+.hero {
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 20px;
+  overflow:hidden;
+  background:
+  radial-gradient(ellipse at center,#651a32,#190710 65%,#090306);
+}
+
+.hero-content {position:relative;z-index:3;}
+
+.eyebrow {
+  font-family:Montserrat,sans-serif;
+  font-size:10px;
+  letter-spacing:6px;
+  color:var(--gold);
+  margin-bottom:28px;
+}
+
+.hero h1 {
+  font-size:clamp(39px,10vw,88px);
+  line-height:1.05;
+  font-weight:500;
+  letter-spacing:3px;
+  color:#f0e5e9;
+  text-shadow:0 0 35px #c47a9166;
+  animation:softGlow 4s infinite alternate;
+}
+
+.hero h2 {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(35px,8vw,65px);
+  color:#dba9b8;
+  margin-top:18px;
+  font-weight:400;
+}
+
+.hero-line {
+  width:100px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#d6a7b5,transparent);
+  margin:30px auto;
+}
+
+.hero-description {
+  font-size:20px;
+  line-height:1.7;
+  color:#d4bdc5;
+}
+
+/* MOON */
+
+.moon {
+  position:absolute;
+  top:10%;
+  right:12%;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fff,#d9cdd0 65%,#8b7780);
+  box-shadow:0 0 35px #f5dbe5aa,0 0 110px #e5b3c855;
+  animation:moonPulse 5s infinite alternate;
+}
+
+.moon:after {
+  content:"";
+  position:absolute;
+  top:-10px;
+  left:27px;
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:#28101b;
+}
+
+/* ROSES */
+
+.rose-art {
+  position:absolute;
+  width:clamp(110px,22vw,220px);
+  opacity:.9;
+  filter:drop-shadow(0 15px 20px #0008);
+  animation:roseSway 7s ease-in-out infinite;
+}
+
+.rose-left {bottom:7%;left:-2%;}
+.rose-right {bottom:6%;right:-2%;}
+
+.rose-art svg {width:100%;}
+
+@keyframes roseSway {
+  0%,100% {transform:rotate(-3deg) translateY(0);}
+  50% {transform:rotate(4deg) translateY(-13px);}
+}
+
+/* FIREFLIES */
+
+.firefly {
+  position:fixed;
+  width:3px;
+  height:3px;
+  background:#ffe7ba;
+  border-radius:50%;
+  box-shadow:0 0 12px 3px #ffdb9b;
+  z-index:1;
+  pointer-events:none;
+  animation:fly 6s infinite alternate ease-in-out;
+}
+
+@keyframes fly {
+  0% {transform:translate(0,0);opacity:.15;}
+  50% {opacity:1;}
+  100% {transform:translate(35px,-65px);opacity:.3;}
+}
+
+/* FALLING PETALS */
+
+.petal {
+  position:fixed;
+  z-index:5;
+  top:-30px;
+  width:13px;
+  height:18px;
+  border-radius:90% 0 90% 0;
+  background:linear-gradient(135deg,#f1b0bf,#8d1538,#3c071a);
+  pointer-events:none;
+  animation:petalFall linear forwards;
+}
+
+@keyframes petalFall {
+  to {
+    transform:translate(100px,110vh) rotate(800deg);
+    opacity:0;
+  }
+}
+
+/* SECTIONS */
+
+.section {
+  padding:100px 22px;
+  text-align:center;
+  position:relative;
+}
+
+.section-title {
+  font-size:clamp(31px,7vw,53px);
+  font-weight:500;
+  letter-spacing:3px;
+  color:#e9d7dd;
+}
+
+.section-subtitle {
+  font-family:Montserrat,sans-serif;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:4px;
+  margin-top:14px;
+}
+
+.divider {
+  width:90px;
+  height:1px;
+  margin:30px auto;
+  background:linear-gradient(90deg,transparent,#bd8596,transparent);
+}
+
+.content-card {
+  max-width:760px;
+  margin:0 auto;
+  padding:40px 30px;
+  text-align:left;
+  background:linear-gradient(145deg,#35101e,#190810);
+  border:1px solid #704151;
+  box-shadow:0 20px 65px #0007;
+  line-height:2;
+  font-size:20px;
+  color:#e3d2d8;
+}
+
+.pink {
+  text-align:center;
+  color:#e7aabd;
+  font-size:26px;
+  margin:24px 0;
+}
+
+/* VIRTUAL LETTER */
+
+.letter-section {
+  background:linear-gradient(180deg,#14070d,#260b18,#14070d);
+}
+
+.envelope-area {
+  width:100%;
+  max-width:480px;
+  height:310px;
+  margin:45px auto 25px;
+  position:relative;
+  perspective:1000px;
+}
+
+.envelope {
+  position:absolute;
+  inset:35px 0 0;
+  height:245px;
+  background:linear-gradient(145deg,#8d3d55,#4c152a);
+  box-shadow:0 25px 55px #0009;
+  border:1px solid #b17b89;
+}
+
+.envelope-back {
+  position:absolute;
+  inset:0;
+  background:#641c34;
+}
+
+.letter-paper {
+  position:absolute;
+  z-index:2;
+  left:6%;
+  width:88%;
+  height:220px;
+  top:0;
+  padding:20px;
+  background:linear-gradient(145deg,#f5e9d9,#e6d3bd);
+  color:#4b2732;
+  box-shadow:0 4px 18px #0005;
+  overflow:hidden;
+  transition:top 1.5s ease,height 1.5s ease;
+}
+
+.letter-paper h3 {
+  font-family:'Great Vibes',cursive;
+  font-size:34px;
+  font-weight:400;
+  margin-bottom:12px;
+}
+
+.letter-paper p {
+  font-size:15px;
+  line-height:1.7;
+}
+
+.envelope-flap {
+  position:absolute;
+  z-index:5;
+  left:0;
+  top:0;
+  width:0;
+  height:0;
+  border-left:min(240px,50vw) solid transparent;
+  border-right:min(240px,50vw) solid transparent;
+  border-top:125px solid #a85a70;
+  transform-origin:top;
+  transition:transform 1s ease;
+}
+
+.envelope-front {
+  position:absolute;
+  z-index:4;
+  bottom:0;
+  width:0;
+  height:0;
+  border-left:min(240px,50vw) solid #73263f;
+  border-right:min(240px,50vw) solid #73263f;
+  border-top:125px solid transparent;
+}
+
+.wax {
+  position:absolute;
+  z-index:6;
+  left:50%;
+  top:103px;
+  transform:translateX(-50%);
+  width:53px;
+  height:53px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#c66b7f,#70142e 75%);
+  border:2px solid #d49aaa;
+  display:grid;
+  place-items:center;
+  color:#f5dbe1;
+  font-size:25px;
+  transition:opacity .5s;
+}
+
+.envelope.open .envelope-flap {
+  transform:rotateX(180deg);
+  z-index:1;
+}
+
+.envelope.open .wax {opacity:0;}
+
+.envelope.open + .letter-paper {
+  top:-90px;
+  height:390px;
+  z-index:7;
+  overflow-y:auto;
+}
+
+.open-letter-btn {
+  display:block;
+  margin:20px auto;
+}
+
+.letter-full {
+  display:none;
+  max-width:760px;
+  margin:30px auto;
+  padding:40px 30px;
+  background:linear-gradient(135deg,#f5eadd,#e7d5c3);
+  color:#4c2834;
+  text-align:left;
+  box-shadow:0 25px 70px #0009;
+  animation:fadeUp 1.2s ease;
+  line-height:2;
+  font-size:19px;
+}
+
+.letter-full h2 {
+  font-family:'Great Vibes',cursive;
+  font-size:45px;
+  text-align:center;
+  font-weight:400;
+}
+
+.letter-full .signature {
+  font-family:'Great Vibes',cursive;
+  font-size:32px;
+  text-align:right;
+  margin-top:25px;
+}
+
+.letter-full .center {
+  text-align:center;
+  color:#8c304b;
+  font-size:25px;
+  margin:20px 0;
+}
+
+/* GIFT */
+
+.gift-box {
+  width:110px;
+  height:100px;
+  position:relative;
+  margin:50px auto 25px;
+  cursor:pointer;
+  animation:giftFloat 3s infinite;
+}
+
+.gift-body {
+  position:absolute;
+  bottom:0;
+  width:110px;
+  height:75px;
+  background:linear-gradient(135deg,#a12c50,#5b1029);
+  border:1px solid #d59aab;
+}
+
+.gift-body:before {
+  content:"";
+  position:absolute;
+  left:43px;
+  height:100%;
+  width:23px;
+  background:#d5b4bd;
+}
+
+.gift-lid {
+  position:absolute;
+  top:7px;
+  left:-7px;
+  width:124px;
+  height:23px;
+  background:linear-gradient(135deg,#bd526d,#761b37);
+  border:1px solid #e1a3b3;
+  transition:1s;
+}
+
+.gift-box.open .gift-lid {
+  transform:translateY(-65px) rotate(-15deg);
+}
+
+.gift-bow {
+  position:absolute;
+  top:-16px;
+  left:36px;
+  width:38px;
+  height:25px;
+  border:7px solid #d9b8c1;
+  border-radius:50%;
+}
+
+.gift-message {
+  display:none;
+  max-width:520px;
+  margin:25px auto;
+  padding:30px;
+  border:1px solid #986071;
+  background:#280b17;
+  line-height:2;
+  font-size:20px;
+  animation:fadeUp 1s ease;
+}
+
+/* FINAL */
+
+.final-section {
+  min-height:75vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:radial-gradient(ellipse at center,#52162a,#14060d 70%);
+}
+
+.final-section h2 {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(48px,10vw,78px);
+  color:#efbdca;
+  font-weight:400;
+}
+
+.footer {
+  padding:50px 20px;
+  text-align:center;
+  background:#090306;
+  line-height:2;
+  color:#c5a6b0;
+}
+
+.footer strong {
+  letter-spacing:5px;
+  font-weight:400;
+}
+
+@keyframes softGlow {
+  to {text-shadow:0 0 40px #e4a8b9;}
+}
+
+@keyframes moonPulse {
+  to {box-shadow:0 0 70px #fff,0 0 130px #e4b0c5;}
+}
+
+@keyframes giftFloat {
+  50% {transform:translateY(-12px);}
+}
+
+@keyframes fadeUp {
+  from {opacity:0;transform:translateY(25px);}
+  to {opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:600px) {
+  .moon {
+    width:62px;
+    height:62px;
+    right:8%;
+  }
+
+  .moon:after {
+    width:56px;
+    height:56px;
+    left:19px;
+    top:-7px;
+  }
+
+  .content-card {
+    padding:27px 21px;
+    font-size:18px;
+  }
+
+  .section {padding:75px 16px;}
+
+  .letter-full {
+    padding:28px 20px;
+    font-size:17px;
+  }
+
+  .hero h1 {letter-spacing:1px;}
+
+  .rose-art {width:120px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- PASSWORD SCREEN -->
+
+<div id="lockScreen">
+  <div class="lock-card">
+    <div style="font-size:43px">♡</div>
+    <h1>DEEP</h1>
+    <div class="small">A WORLD MADE JUST FOR YOU</div>
+
+    <p>
+      Somewhere between the moonlight<br>
+      and the roses, there is a message for you.
+    </p>
+
+    <input type="password" id="password"
+    placeholder="ENTER SECRET PASSWORD">
+
+    <button class="btn" onclick="unlock()">
+      ENTER MY WORLD ♡
+    </button>
+
+    <div id="error"></div>
+  </div>
+</div>
+
+<!-- WEBSITE -->
+
+<div id="website">
+
+<header class="hero">
+
+  <div class="moon"></div>
+
+  <!-- ROSE LEFT -->
+
+  <div class="rose-art rose-left">
+    <svg viewBox="0 0 200 260">
+      <defs>
+        <radialGradient id="rose1">
+          <stop stop-color="#ffb1bd"/>
+          <stop offset=".35" stop-color="#d53b62"/>
+          <stop offset=".72" stop-color="#78122f"/>
+          <stop offset="1" stop-color="#300713"/>
+        </radialGradient>
+      </defs>
+
+      <path d="M100 110 Q95 185 110 260"
+      stroke="#456c40" stroke-width="6" fill="none"/>
+
+      <path d="M105 180 Q38 133 25 177 Q67 211 105 180"
+      fill="#456d42"/>
+
+      <path d="M105 215 Q153 164 178 201 Q152 238 105 215"
+      fill="#294b31"/>
+
+      <path d="M100 110 C25 88 34 25 82 38
+      C55 -8 145 -5 132 43
+      C191 23 190 92 135 106
+      C175 137 115 166 100 110Z"
+      fill="url(#rose1)"/>
+
+      <path d="M100 110 C45 86 72 36 102 53
+      C130 25 158 69 125 103
+      C155 122 111 148 100 110Z"
+      fill="#ad1d46"/>
+
+      <path d="M100 105 C78 75 106 57 120 79
+      C137 94 113 120 100 105Z"
+      fill="#ed708b"/>
+    </svg>
+  </div>
+
+  <!-- ROSE RIGHT -->
+
+  <div class="rose-art rose-right">
+    <svg viewBox="0 0 200 260">
+      <path d="M100 110 Q95 185 110 260"
+      stroke="#456c40" stroke-width="6" fill="none"/>
+
+      <path d="M105 180 Q38 133 25 177 Q67 211 105 180"
+      fill="#37613d"/>
+
+      <path d="M100 110 C25 88 34 25 82 38
+      C55 -8 145 -5 132 43
+      C191 23 190 92 135 106
+      C175 137 115 166 100 110Z"
+      fill="#80132f"/>
+
+      <path d="M100 110 C45 86 72 36 102 53
+      C130 25 158 69 125 103
+      C155 122 111 148 100 110Z"
+      fill="#c32c55"/>
+
+      <path d="M100 105 C78 75 106 57 120 79
+      C137 94 113 120 100 105Z"
+      fill="#f17d96"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="eyebrow">A PERSONAL UNIVERSE</div>
+
+    <h1>YOU ARE<br>PRECIOUS</h1>
+
+    <h2>My Everything</h2>
+
+    <div class="hero-line"></div>
+
+    <p class="hero-description">
+      This universe is not perfect.<br>
+      But its message is true.<br>
+      You matter, DEEP.
+    </p>
+
+    <button class="scroll-btn"
+    onclick="document.getElementById('begin').scrollIntoView()">
+      DISCOVER YOUR WORLD ↓
+    </button>
+  </div>
+
+</header>
+
+<!-- INTRO -->
+
+<section class="section" id="begin">
+
+  <div class="section-title">HEY, DEEP...</div>
+
+  <div class="section-subtitle">
+    SOMETHING I WANT YOU TO KNOW
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="content-card">
+    Sometimes I wish you could see yourself
+    through the eyes of someone who truly cares.
+
+    <div class="pink">YOU ARE NOT A JOKER.</div>
+
+    You are a person with feelings, dreams,
+    thoughts and a story that deserves to be heard.
+
+    You don't have to pretend to smile
+    when your heart is hurting.
+
+    You don't have to prove that you are strong
+    every single day.
+
+    You deserve kindness simply because you are human.
+  </div>
+
+</section>
+
+<!-- WORDS MATTER -->
+
+<section class="section">
+
+  <div class="section-title">YOUR WORDS MATTER</div>
+
+  <div class="section-subtitle">EVERY SINGLE ONE OF THEM</div>
+
+  <div class="divider"></div>
+
+  <div class="content-card">
+    Your words are not meaningless.
+
+    <div class="pink">YOUR FEELINGS ARE VALID.</div>
+
+    Your silence matters.
+    Your sadness matters.
+    Your happiness matters.
+
+    You deserve to be listened to,
+    not judged.
+
+    You deserve a place where you don't
+    have to hide your real emotions.
+
+    You don't need to entertain people
+    to deserve their care.
+  </div>
+
+</section>
+
+<!-- VIRTUAL LETTER -->
+
+<section class="section letter-section" id="letter">
+
+  <div class="section-title">A LETTER FOR YOU</div>
+
+  <div class="section-subtitle">SEALED WITH LOVE</div>
+
+  <div class="divider"></div>
+
+  <p style="font-size:19px;color:#cdb3bd">
+    A little letter, made specially for you.
+  </p>
+
+  <div class="envelope-area">
+
+    <div class="envelope" id="envelope">
+
+      <div class="envelope-back"></div>
+      <div class="envelope-flap"></div>
+      <div class="envelope-front"></div>
+      <div class="wax">♡</div>
+
+    </div>
+
+    <div class="letter-paper">
+      <h3>For My Everything...</h3>
+      <p>
+        There is something my heart wants you to know.
+        <br>
+        You are precious. Always.
+      </p>
+    </div>
+
+  </div>
+
+  <button class="btn open-letter-btn"
+  id="openLetterBtn" onclick="openLetter()">
+    OPEN YOUR LETTER ♡
+  </button>
+
+  <div class="letter-full" id="fullLetter">
+
+    <h2>Dear My Favourite Human,</h2>
+
+    <br>
+
+    Do you know something?
+
+    <br><br>
+
+    You keep calling yourself a Joker.
+    You say your words have no value.
+    You pretend to smile, even when your heart might
+    be hurting.
+
+    <br><br>
+
+    But can I tell you something?
+
+    <div class="center">YOU ARE NOT A JOKE.</div>
+
+    Your feelings matter. Your words matter.
+    Your silence matters. Even the days when you
+    cannot smile matter.
+
+    <br><br>
+
+    You don't have to be strong every second.
+    You don't have to win every battle.
+    You don't have to pretend that everything is okay.
+
+    <br><br>
+
+    You are allowed to be tired.<br>
+    You are allowed to cry.<br>
+    You are allowed to ask for help.<br>
+    You are allowed to be yourself.
+
+    <br><br>
+
+    I don't want you to smile just to make me happy.
+    I want you to feel safe enough to be yourself.
+
+    <br><br>
+
+    I wish you could see yourself through my eyes,
+    even for a moment.
+
+    <div class="center">YOU ARE PRECIOUS.</div>
+
+    Not because of your strength,
+    achievements or usefulness.
+
+    But simply because YOU ARE YOU.
+
+    <br><br>
+
+    And please, if life ever feels too heavy,
+    let someone stand beside you.
+    Talk to me. Talk to someone you trust.
+    You deserve help, care and a chance to feel better.
+
+    <br><br>
+
+    You do not need to earn your right to be cared for.
+
+    <div class="signature">
+      With all my love,<br>
+      Your Favourite Person ♡
+    </div>
+
+  </div>
+
+</section>
+
+<!-- GIFT -->
+
+<section class="section">
+
+  <div class="section-title">A LITTLE SURPRISE</div>
+
+  <div class="section-subtitle">SOMETHING JUST FOR YOU</div>
+
+  <div class="divider"></div>
+
+  <p style="font-size:19px;color:#d6bbc4">
+    This little gift is waiting for you.
+  </p>
+
+  <div class="gift-box" id="giftBox" onclick="openGift()">
+    <div class="gift-body"></div>
+    <div class="gift-lid"></div>
+    <div class="gift-bow"></div>
+  </div>
+
+  <p style="color:#caa6b2;font-size:13px">
+    TAP TO OPEN YOUR GIFT
+  </p>
+
+  <div class="gift-message" id="giftMessage">
+
+    <div style="font-size:38px">♡</div>
+
+    <h2 style="color:#eab4c3">
+      SURPRISE, DEEP!
+    </h2>
+
+    <br>
+
+    No gift could ever measure
+    the worth of a human being.
+
+    <br><br>
+
+    This little surprise is only a reminder
+    that you deserve kindness,
+    care and happiness.
+
+    <div class="pink">YOU ARE ENOUGH.</div>
+
+  </div>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="section final-section">
+
+  <div class="section-subtitle">ONE LAST THING</div>
+
+  <h2>PLEASE STAY.</h2>
+
+  <div class="divider"></div>
+
+  <div class="content-card" style="text-align:center">
+
+    You don't have to be happy every day.
+
+    <br><br>
+
+    You don't have to fight every battle alone.
+
+    <br><br>
+
+    There are people who can listen,
+    help and stand beside you.
+
+    <div class="pink">YOUR LIFE MATTERS, DEEP.</div>
+
+    Please give yourself the chance
+    to see the beautiful days ahead.
+
+    And whenever things feel unbearable,
+    reach out to someone you trust.
+
+    <br><br>
+
+    You deserve support.
+    You deserve care.
+    You deserve to be here.
+
+    <div class="pink">
+      THE WORLD IS BETTER WITH YOU IN IT. ♡
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+
+  <strong>MADE WITH LOVE</strong>
+
+  <p style="font-family:'Great Vibes';font-size:35px">
+    For DEEP
+  </p>
+
+  <p>YOU ARE PRECIOUS. ALWAYS.</p>
+
+  <p style="font-size:12px;margin-top:20px">
+    A little universe, made with a lot of love. ♡
+  </p>
+
+</footer>
+
+</div>
+
+<script>
+
+/* PASSWORD */
+
+const SECRET_PASSWORD = "I LOVE MY EVERYTHING";
+
+function unlock() {
+
+  const entered =
+  document.getElementById("password").value;
+
+  if(entered === SECRET_PASSWORD) {
+
+    document.getElementById("lockScreen").style.display="none";
+
+    document.getElementById("website").style.display="block";
+
+    startAnimations();
+
+  } else {
+
+    document.getElementById("error").textContent =
+    "Incorrect password. Try again ♡";
+
+  }
+
+}
+
+document.getElementById("password")
+.addEventListener("keydown",function(e){
+
+  if(e.key==="Enter") unlock();
+
+});
+
+/* VIRTUAL LETTER */
+
+let letterOpened=false;
+
+function openLetter(){
+
+  if(letterOpened) return;
+
+  letterOpened=true;
+
+  document.getElementById("envelope")
+  .classList.add("open");
+
+  document.getElementById("openLetterBtn").textContent =
+  "YOUR LETTER IS OPEN ♡";
+
+  setTimeout(()=>{
+
+    document.getElementById("fullLetter").style.display="block";
+
+    document.getElementById("fullLetter")
+    .scrollIntoView({behavior:"smooth",block:"center"});
+
+  },1700);
+
+}
+
+/* GIFT */
+
+let giftOpened=false;
+
+function openGift(){
+
+  if(giftOpened) return;
+
+  giftOpened=true;
+
+  document.getElementById("giftBox")
+  .classList.add("open");
+
+  setTimeout(()=>{
+
+    document.getElementById("giftMessage").style.display="block";
+
+  },800);
+
+}
+
+/* ANIMATIONS */
+
+function startAnimations(){
+
+  /* FIREFLIES */
+
+  for(let i=0;i<35;i++){
+
+    const fly=document.createElement("div");
+
+    fly.className="firefly";
+
+    fly.style.left=Math.random()*100+"vw";
+
+    fly.style.top=Math.random()*100+"vh";
+
+    fly.style.animationDelay=Math.random()*6+"s";
+
+    fly.style.animationDuration=(4+Math.random()*5)+"s";
+
+    document.body.appendChild(fly);
+
+  }
+
+  /* ROSE PETALS */
+
+  setInterval(()=>{
+
+    const petal=document.createElement("div");
+
+    petal.className="petal";
+
+    petal.style.left=Math.random()*100+"vw";
+
+    petal.style.animationDuration=(7+Math.random()*7)+"s";
+
+    petal.style.opacity=.3+Math.random()*.7;
+
+    document.body.appendChild(petal);
+
+    setTimeout(()=>petal.remove(),15000);
+
+  },650);
+
+}
+
+</script>
+
+</body>
+</html>
